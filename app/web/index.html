@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regulatory Migration Workbench</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Life-sciences data quality utility</p>
+      <h1>Regulatory Migration Workbench</h1>
+      <p class="subtitle">Profile source data, review duplicate candidates, assess FAIR evidence, and check regulatory and clinical sources before transformation.</p>
+    </div>
+    <div class="hero-badge"><span class="status-dot"></span>Local-first MVP</div>
+  </header>
+
+  <main class="shell">
+    <section class="toolbar panel">
+      <div>
+        <h2>Start with a dataset</h2>
+        <p class="muted">CSV is supported in this first slice. The original upload is processed in memory and never written to disk.</p>
+      </div>
+      <div class="actions">
+        <label class="button secondary" for="file-input">Choose CSV</label>
+        <input id="file-input" type="file" accept=".csv,text/csv">
+        <button id="sample-button" class="button primary">Load sample</button>
+        <button id="export-button" class="button secondary" disabled>Export analysis</button>
+      </div>
+      <p id="upload-status" class="status-line" role="status">No dataset loaded.</p>
+    </section>
+
+    <section id="summary" class="stat-grid" aria-live="polite"></section>
+
+    <section class="panel">
+      <div class="section-heading"><div><p class="eyebrow">Data profile</p><h2>Field-level quality signals</h2></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Blank</th><th>Unique</th><th>Examples</th></tr></thead><tbody id="profile-body"><tr><td colspan="5" class="empty">Load a dataset to see its profile.</td></tr></tbody></table></div>
+    </section>
+
+    <section class="two-col">
+      <div class="panel">
+        <div class="section-heading"><div><p class="eyebrow">Review queue</p><h2>Issues and duplicates</h2></div></div>
+        <div id="issues" class="stack"><p class="empty">No analysis yet.</p></div>
+      </div>
+      <div class="panel">
+        <div class="section-heading"><div><p class="eyebrow">Duplicate workbench</p><h2>Candidate groups</h2></div></div>
+        <div id="duplicates" class="stack"><p class="empty">No analysis yet.</p></div>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div class="panel">
+        <div class="section-heading"><div><p class="eyebrow">FAIR evidence</p><h2>Assessment scaffold</h2></div></div>
+        <div id="fair" class="stack"><p class="empty">No analysis yet.</p></div>
+      </div>
+      <div class="panel">
+        <div class="section-heading"><div><p class="eyebrow">Controlled decision</p><h2>Risk disposition</h2></div></div>
+        <label>Decision
+          <select id="risk-decision">
+            <option value="review-required">Review required</option>
+            <option value="remediate">Remediate before migration</option>
+            <option value="transform">Transform with approved rule</option>
+            <option value="accept-with-approval">Accept with approval</option>
+            <option value="exclude">Exclude with justification</option>
+          </select>
+        </label>
+        <label>Rationale
+          <textarea id="risk-rationale" rows="5" placeholder="Record evidence and why this disposition is appropriate."></textarea>
+        </label>
+        <p class="callout">Risk is never accepted automatically. This is a review record for an authorised data owner or QA approver.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><div><p class="eyebrow">Reference connectivity</p><h2>Regulatory and clinical sources</h2></div><button id="health-button" class="button secondary">Run health check</button></div>
+      <div id="sources" class="source-list"><p class="empty">Loading source catalogue…</p></div>
+    </section>
+
+    <section class="panel learning-panel">
+      <div class="section-heading"><div><p class="eyebrow">Learn while doing</p><h2>FAIR and data-cleanup playbook</h2></div></div>
+      <div id="quality-vs-fair" class="callout"></div>
+      <div id="fair-lessons" class="lesson-grid"></div>
+      <h3 class="subheading">The cleanup loop</h3>
+      <div id="cleanup-steps" class="steps"></div>
+      <p id="learning-sources" class="reference-links"></p>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

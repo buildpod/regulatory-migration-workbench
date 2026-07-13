@@ -1,0 +1,7 @@
+application_id,product_name,market,status,approval_date,owner
+APP-001,Cardiovex,Germany,Active,2026-03-15,Regulatory
+APP-001,Cardiovex,Germany,Active,2026-03-15,Regulatory
+ APP-002 ,Cardiovex,France,active,not-a-date,
+APP-003,Cardiovex,France,Active,2026-03-15,Regulatory
+APP-003,Cardiovex,France,Active,2026-03-15,Regulatory
+
