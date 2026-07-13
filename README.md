@@ -13,6 +13,8 @@ This first vertical slice provides:
 - Read-only health checks for FDA, EMA, ICH, ClinicalTrials.gov, and CTIS source endpoints.
 - A browser UI served by a dependency-free Python process.
 
+The requirements baseline is documented in [docs/01_objective_and_v_model.md](docs/01_objective_and_v_model.md). It defines the product objective, current gaps, V-model verification path, evidence model, and next vertical slice.
+
 The project is intentionally public-safe: it contains no customer data, credentials, licensed medical dictionaries, or private reference documents.
 
 ## Run locally
