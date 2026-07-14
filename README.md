@@ -19,9 +19,36 @@ The project is intentionally public-safe: it contains no customer data, credenti
 
 ## Run locally
 
+### From the downloaded source package
+
+The workbench uses the local system Python and has no third-party runtime dependencies.
+
 ```bash
 cd regulatory-migration-workbench
 python3 -m app.server
+```
+
+On macOS or Linux, the included launcher can also be used:
+
+```bash
+./run_local.sh
+```
+
+On macOS, double-click `run_local.command` after allowing Terminal access if macOS asks for confirmation.
+
+### Install as a local command
+
+```bash
+python3 -m pip install .
+regulatory-workbench
+```
+
+The package keeps the web assets and sample dataset inside the installed distribution, so it does not depend on the original checkout path.
+
+### Start the server
+
+```bash
+regulatory-workbench
 ```
 
 Open <http://127.0.0.1:4174>.

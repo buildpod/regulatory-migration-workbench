@@ -14,5 +14,8 @@ dependencies = []
 regulatory-workbench = "app.server:main"
 
 [tool.setuptools.packages.find]
-include = ["app*"]
+include = ["app*", "sample_data*"]
 
+[tool.setuptools.package-data]
+app = ["web/*.html", "web/*.js", "web/*.css"]
+sample_data = ["*.csv"]

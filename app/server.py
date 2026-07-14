@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import mimetypes
+import os
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -101,8 +102,8 @@ class WorkbenchHandler(BaseHTTPRequestHandler):
 
 
 def main() -> None:
-    host = "127.0.0.1"
-    port = 4174
+    host = os.environ.get("WORKBENCH_HOST", "127.0.0.1")
+    port = int(os.environ.get("WORKBENCH_PORT", "4174"))
     print(f"Regulatory Migration Workbench running at http://{host}:{port}")
     ThreadingHTTPServer((host, port), WorkbenchHandler).serve_forever()
 

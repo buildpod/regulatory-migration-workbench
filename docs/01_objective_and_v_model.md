@@ -64,6 +64,8 @@ The current MVP proves the direction, but not the full operating model.
 | Output | JSON export and source-health results | No review workbook, mapping package, reconciliation report, or target load package | Teams must manually rework outputs | Standard evidence, mapping, exception, and load-ready exports |
 | Security and deployment | Local-only, dependency-free server | No authentication, authorization, project isolation, persistence, audit log, encryption, or deployment controls | Not ready for shared or regulated operational use | Deployment profiles: local utility, controlled team service, enterprise integration |
 
+The local deployment target is a downloadable source or wheel package that runs with the user's existing Python installation. A hosted service is not required for the initial intended use.
+
 ## 5. Product boundaries
 
 ### In scope
